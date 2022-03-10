@@ -1,0 +1,71 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+DB - https://securesgp51.sgcpanel.com:2083/cpsess9633917449/3rdparty/phpMyAdmin/sql.php?server=1&db=ashishk6_shellGame&table=userdata&pos=0&token=f21d7b2f0d354742aec92b3a1341d2d8
+
+https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fstackoverflow.com%2Fq%2F20956229%2F1101509&
+picture=http%3A%2F%2Fwww.applezein.net%2Fwordpress%2Fwp-content%2Fuploads%2F2015%2F03%2Ffacebook-logo.jpg&
+title=A+nice+question+about+Facebook&
+quote=Does+anyone+know+if+there+have+been+recent+changes+which+could+have+suddenly+stopped+this+from+working%3F&
+description=Apparently%2C+the+accepted+answer+is+not+correct.
+
+
+
+https://www.facebook.com/sharer/sharer.php?u=https://shellgame.in/&picture=http://shellgame.in/sharer_fb.jpg&title=Share+Your+score+about+Shell&quote=I+just+played+the+Shell+Dash+game+and+scored+220+points!+Think+you+can+beat+my+score?+Give+it+a+try:+www.shelldash.in
+
+
+https://www.facebook.com/sharer/sharer.php?u=https://shellgame.in/&picture=http://shellgame.in/sharer_fb.jpg&title=Share+Your+score+about+Shell&quote=I+just+played+the+Shell+Dash+game+and+scored+220+points!+Think+you+can+beat+my+score?+Give+it+a+try:+www.shelldash.in
+
+
+
+https://work.facebook.com/sharer.php?display=page&u=https://shellgame.in/
+
+
+I+just+played+the+Shell+Dash+game+and+scored=220+points!+Think+you+can+beat+my+score?+Give+it+a+try:+www.shelldash.in
+
+
+
+https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fshellgame.in%2F&picture=https%3A%2F%2Fshellgame.in%2FLoading.gif&title=Share%20Your%20score%20about%20Shell&quote=I%20just%20played%20the%20Shell%20Dash%20game%20and%20scored
+
+
+
+https://www.facebook.com/sharer/sharer.php?u=https://shellgame.in/&picture=http://shellgame.in/sharer_fb.jpg&title=Share+Your+score+about+Shell&quote=I+just+played+the+Shell+Dash+game+and+scored+220+points!+Think+you+can+beat+my+score?+Give+it+a+try:+www.shelldash.in
+
+
+WHATAPP
+
+"I just played the Shell Dash game and scored "+theScore+" points! Think you can beat my score? Give it a try: www.shelldash.in";
+
+
+https://twitter.com/share?url="+escape(https://shellgame.in)+"&text="+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+raceComplete
+
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta property="og:title" content="Shell Dash">
+<meta property="og:image" content="http://shellgame.in/sharer_fb.jpg">
+<script>
+if (window.location.protocol == "http:") {
+        var restOfUrl = window.location.href.substr(5);
+        window.location = "https:" + restOfUrl;
+    }
+</script><script src="http://code.jquery.com/jquery-2.2.4.min.js"  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="  crossorigin="anonymous"></script>

@@ -8,14 +8,89 @@
 	5. Remove unnecessary comments before creating your template.
 -->
 <html>
-<head><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta property="og:title" content="Shell Dash">
 <meta property="og:image" content="http://shellgame.in/sharer_fb.jpg">
+<script>
+if (window.location.protocol == "http:") {
+	if(window.location.hostname!='127.0.0.1'){ 
+        var restOfUrl = window.location.href.substr(5);
+        window.location = "https:" + restOfUrl;
+		}
+    }
+	
+	
+	////
+	
+	setTimeout(chkPort, 500)
+	
+	function chkPort(){	
+	
+	function detectmob() { 
+		 if( navigator.userAgent.match(/Android/i)
+		 || navigator.userAgent.match(/webOS/i)
+		 || navigator.userAgent.match(/iPhone/i)
+		 || navigator.userAgent.match(/iPad/i)
+		 || navigator.userAgent.match(/iPod/i)
+		 || navigator.userAgent.match(/BlackBerry/i)
+		 || navigator.userAgent.match(/Windows Phone/i)
+		 ){
+		    return true;
+		  }
+		 else {
+		    return false;
+		  }
+		}	
+	
+
+	
+	if(detectmob()){
+	
+		window.addEventListener('orientationchange', doOnOrientationChanges);
+		
+		function doOnOrientationChanges() {
+			switchToOtherMode();
+		}
+
+	function switchToOtherMode() {
+		if (window.matchMedia("(orientation: portrait)").matches) {			
+			 window.open("https://shellgame.in/p", "_self");
+			console.log('you are in Port mode');		
+		} 
+		else {			
+				console.log(' Landsc -- ... (switchToOtherMode)');
+				window.open("https://shellgame.in", "_self");
+		}
+	}
+
+////
+
+if (window.matchMedia("(orientation: portrait)").matches) {
+	window.open("https://shellgame.in/p", "_self");
+	setTimeout(orientationLSCP, 10);	
+}
+else{
+  // window.open("https://shellgame.in", "_self");
+}
+
+	function orientationLSCP(){
+		//window.open("https://shellgame.in/p", "_self");
+	}
+	orientationLSCP();
+ }
  
-<script src="jquery-2.2.4.min.js"  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="  crossorigin="anonymous"></script>
+ }
+
+//----------------------------------------------------	
+	
+	
+</script><script src="jquery-2.2.4.min.js"  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="  crossorigin="anonymous"></script>
+
 <meta charset="UTF-8">
 <meta name="authoring-tool" content="Adobe_Animate_CC">
-<title>index</title>
+<title>Shell Dash</title>
 <!-- write your code here -->
 <style>
   body {
@@ -27,19 +102,69 @@
 	left:-100%;right:-100%;
   }
   
-#loader{  
+    #loaderGif{  
     position:relative;
     margin:0 auto;
     clear:left;
     height:auto;
     z-index: 2220;
     text-align:center;/* Add This*/
-  
-}
+  }
   
 </style>
 <script src="libs/createjs-2015.11.26.min.js"></script>
-<script src="index.js?1554695091797"></script>
+<script>
+function LoadGFonts(families, comp) {				
+	var lib=comp.getLibrary();				
+	var googleObject = {type: "Google", loadedFonts: 0, totalFonts: families.length, callOnLoad: lib.gfontAvailable};				
+	for(var i =0; i < families.length; i++)				
+		isFontAvailable(gFontsFamilies[i], googleObject);				
+}
+function isFontAvailable(font, obj) {				
+	var timeOut = 5000;				
+	var delay = 200;				
+	var interval = 0;				
+	var timeElapsed = 0;				
+	function checkFont() {				
+		var node = document.createElement("span");				
+		node.innerHTML = "giItT1WQy@!-/#";				
+		node.style.position      = "absolute";				
+		node.style.left          = "-1000px";				
+		node.style.top           = "-1000px";				
+		node.style.fontSize      = "300px";				
+		node.style.fontFamily    = "sans-serif";				
+		node.style.fontVariant   = "normal";				
+		node.style.fontStyle     = "normal";				
+		node.style.fontWeight    = "normal";				
+		node.style.letterSpacing = "0";				
+		document.body.appendChild(node);				
+		var width = node.offsetWidth;				
+		node.style.fontFamily = font+","+node.style.fontFamily;				
+		var returnVal = false;				
+		if((node && node.offsetWidth != width) || timeElapsed >=timeOut) {				
+			obj.loadedFonts++;				
+			if(interval)				
+				clearInterval(interval);				
+			obj.callOnLoad(font, obj.totalFonts);				
+			returnVal = true;				
+		}				
+		if(node) {				
+			node.parentNode.removeChild(node);				
+			node = null;				
+		}				
+		timeElapsed += delay;				
+		return returnVal;				
+	}				
+	if(!checkFont()) {				
+		interval = setInterval(checkFont, delay);				
+	}				
+}
+</script>
+<script>
+	var gFontsFamilies = ["Roboto"];
+</script>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:regular&subset=latin">
+<script src="index.js?1557241676446"></script>
 <script type='text/javascript' src='libs/social.js'></script>
 <script type='text/javascript' src='libs/api_client.js'></script>
 <script>
@@ -50,6 +175,19 @@ function init() {
 	dom_overlay_container = document.getElementById("dom_overlay_container");
 	var comp=AdobeAn.getComposition("311388075ED5E847A1DA2D48765C51B7");
 	var lib=comp.getLibrary();
+	try {
+		if(!(typeof gFontsFamilies === 'undefined' || gFontsFamilies === null))
+			LoadGFonts(gFontsFamilies, comp);		
+		if(!(typeof totalTypekitFonts === 'undefined' || totalTypekitFonts === null)) {			
+			var typekitObject = {type: 'Typekit', loadedFonts: 0, totalFonts: totalTypekitFonts, callOnLoad: lib.tfontAvailable};		
+			Typekit.load({
+			async: true,
+			'fontactive': function(family) {
+				isFontAvailable(family, typekitObject);
+				}
+			});
+		}
+	} catch(e) {};
 	var loader = new createjs.LoadQueue(false);
 	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
 	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
@@ -88,18 +226,13 @@ document.getElementById("loaderGif").style.display = "none";
 <!-- write your code here -->
 </head>
 <body onload="init();" style="margin:0px;">
- 
-<div id="loaderGif" style='display: block'><img src='https://shellgame.in/Loading.gif' /></div>
- 
+
+<div id="loaderGif" style='display: block'><br><br><br><br><img id="loading-image" src='http://shellgame.in/p2.gif' /></div>
 
 	<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:2210px; height:1081px">
-	   
-	   
-	   
 		<canvas id="canvas" width="2210" height="1081" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
 		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:2210px; height:1081px; position: absolute; left: 0px; top: 0px; display: block;">
 		</div>
-		
 	</div>
 </body>
 </html>

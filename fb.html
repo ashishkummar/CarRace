@@ -1,8 +1,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
   window.fbAsyncInit = function() {
-    FB.init({
-        appId      : '2379845198701339',
+    
+	console.log('Fb Init..')
+	
+	FB.init({
+      appId      : '2379845198701339',
       cookie     : true,
       xfbml      : true,
       version    : 'v3.2'
@@ -10,7 +13,7 @@
       
     FB.AppEvents.logPageView();   
 	
-
+    fbAlreadyLoginCheck();
       
   };
 
@@ -21,6 +24,19 @@
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+   
+   
+function fbAlreadyLoginCheck(){
+      console.log('Fb checking if already login...');
+ 	 FB.getLoginStatus(function(response) {
+	 if(response.status === 'connected'){}else{console.log('login now');}
+ 
+	}, true); 
+}
+   
+   
+   
+   
    
    function loginToFacebook(){
    	
@@ -66,84 +82,42 @@
   }
 ///
 
+
+function fbShare(){
+  var theScore="333";
+FB.ui({
+  method: 'share_open_graph',
+  action_type: 'og.likes',
+  action_properties: JSON.stringify({
+   object : {
+           'og:url': 'https://shellgame.in', // your url to share
+           'og:title': 'Can you beat my score?',
+           'og:description': "I just played the Shell Dash game and scored "+theScore+" points! Think you can beat my score? Give it a try: www.shelldash.in",
+           'og:image': 'https://shellgame.in/sharer_fb.jpg'
+        }
+  })
+}, function(response){});
+ 
+  
+
+}
+ ///
+ 
+ 
+ function simpleFBshare(){
+ var theScore="333";
+ var FBURL = "https://www.facebook.com/sharer/sharer.php?u=https://shellgame.in/&picture=http://shellgame.in/sharer_fb.jpg&title=Can+you+beat+my score?&quote=I+just+played+the+Shell+Dash+game+and+scored "+theScore+" points!+Think+you+can+beat+my+score?+Give+it+a+try:+www.shelldash.in";
+					window.open(FBURL, '_blank');
+ 
+ }
  
 </script>
 
-<button onclick="loginToFacebook()">FB Login</button>
-<button onclick="loginGoog()">gg</button>
+<button onclick="loginToFacebook()">FB Login</button><br><br>
+<button onclick="fbShare()">FB SHARE</button><br><br>
+<button onclick="simpleFBshare()">FB Simple Share</button>
 <p id="demofb"></p>
 
 <br><br> 
  
-<br><br>
-<!----------------------------------------------------------------- -------------------------------------------------------------------->
-<!----------------------------------------------------------------- -------------------------------------------------------------------->
-
-<button id='customBtn' >Google SignIn my button </button>
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-  <script src="https://apis.google.com/js/api:client.js"></script>
-  <script>
-  var googleUser = {};
-  var startApp = function() {
-    gapi.load('auth2', function(){
-      // Retrieve the singleton for the GoogleAuth library and set up the client.
-      auth2 = gapi.auth2.init({
-        client_id: '1011563481025-sgkagfmaogvkkv0t9q1u1qsatr2s644q.apps.googleusercontent.com',
-        cookiepolicy: 'single_host_origin',
-        // Request scopes in addition to 'profile' and 'email'
-        //scope: 'additional_scope'
-      });
-      attachSignin(document.getElementById('customBtn'));
-    });
-  };
-
-  function attachSignin(element) {
-    console.log(element.id);
-    auth2.attachClickHandler(element, {},
-        function(googleUser) {
-          console.log( "Signed in: " + googleUser.getBasicProfile().getName());
-		  console.log('ID: ' + googleUser.getBasicProfile().getId()); // Do not send to your backend! Use an ID token instead.
-		  console.log('Name: ' + googleUser.getBasicProfile().getName());
-		  console.log('Image URL: ' + googleUser.getBasicProfile().getImageUrl());
-		  console.log('Email: ' + googleUser.getBasicProfile().getEmail()); // This is null if the 'email' scope is not present.
-				  document.getElementById("demogoogle").innerHTML =googleUser.getBasicProfile().getEmail();
-		  
-        }, function(error) {
-          alert(JSON.stringify(error, undefined, 2));
-        });
-  }
-  ////////////
-  
-  function loginGoog() 
-{
-  var myParams = {
-    'clientid' : '1011563481025-sgkagfmaogvkkv0t9q1u1qsatr2s644q.apps.googleusercontent.com', //You need to set client id
-    'cookiepolicy' : 'single_host_origin',
-    'callback' : 'loginCallback', //callback function
-    'approvalprompt':'force',
-    'scope' : 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
-  };
-  gapi.auth.signIn(myParams);
-}  
-  
-  
-  function loginCallback(resp){
-		console.log(resp); 
-		
-		console.log(resp.status)  
-		
-		/*
-		 console.log( "Signed in: " + googleUser.getBasicProfile().getName());
-		  console.log('ID: ' + googleUser.getBasicProfile().getId()); // Do not send to your backend! Use an ID token instead.
-		  console.log('Name: ' + googleUser.getBasicProfile().getName());
-		  console.log('Image URL: ' + googleUser.getBasicProfile().getImageUrl());
-		  console.log('Email: ' + googleUser.getBasicProfile().getEmail()); // This is null if the 'email' scope is not present.
-		*/
-  }
-  
-  
-  </script>
-  
-  <script>startApp();</script>
-  
-  <p id="demogoogle"></p>
+ 
