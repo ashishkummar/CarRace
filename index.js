@@ -2932,10 +2932,10 @@ p.nominalBounds = new cjs.Rectangle(-1193,-431.7,1196.6,695.2);
 							action_type: 'og.likes',
 							action_properties: JSON.stringify({
 							object : {
-								   'og:url': 'https://shellgame.in', // your url to share
+								   'og:url': 'https://ashishkummar.github.io/carrace/', // your url to share
 								   'og:title': 'Can you beat my score?',
 								   'og:description': 'I just played the Shell Dash game and scored '+theScore+' points! Think you can beat my score? Give it a try: www.shelldash.in',
-								   'og:image': 'https://shellgame.in/sharer_fb.jpg'
+								   'og:image': 'https://ashishkummar.github.io/carrace/sharer_fb.jpg'
 								}
 						})
 						}, function(response){});
@@ -2946,8 +2946,8 @@ p.nominalBounds = new cjs.Rectangle(-1193,-431.7,1196.6,695.2);
 						case 'TW':
 							
 					console.log('share on twitter');
-				var twtrMsg = escape("I just played the Shell Dash game and scored "+theScore+" points! Think you can beat my score? Give it a try: www.shellgame.in")
-				var twtrURL="https://twitter.com/share?url='+escape(https://shellgame.in)+'&text='"+twtrMsg;
+				var twtrMsg = escape("I just played the Shell Dash game and scored "+theScore+" points! Think you can beat my score? Give it a try: https://ashishkummar.github.io/carrace/")
+				var twtrURL="https://twitter.com/share?url='+escape(https://ashishkummar.github.io/carrace/)+'&text='"+twtrMsg;
 				    window.open(twtrURL, '_blank');
 				// Share on TW
 					break;
@@ -2955,7 +2955,7 @@ p.nominalBounds = new cjs.Rectangle(-1193,-431.7,1196.6,695.2);
 				case 'WAPP':
 					console.log('share on whatsapp');
 				
-				var whatAppMsg = escape("I just played the Shell Dash game and scored "+theScore+" points! Think you can beat my score? Give it a try: www.shellgame.in")
+				var whatAppMsg = escape("I just played the Shell Dash game and scored "+theScore+" points! Think you can beat my score? Give it a try: https://ashishkummar.github.io/carrace/")
 				var wsappurl = "whatsapp://send?text="+whatAppMsg;
 					window.open(wsappurl, '_blank');		     
 				
@@ -4114,7 +4114,7 @@ p.nominalBounds = new cjs.Rectangle(-144,-201.6,288,468.6);
 		this.logoHelix.cursor = "pointer";
 		
 		function fl_ClickToGoToWebPage() {
-			window.open("https://shellgame.in/", "_self");
+			window.open("https://ashishkummar.github.io/carrace/", "_self");
 		}
 		var _frameLandPort = this;
 		
