@@ -1,0 +1,39 @@
+<html><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>index</title>
+
+</head>
+<body>
+	
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="  crossorigin="anonymous"></script>
+
+    <script>
+        
+            var username = 'singh';
+            var email = 'singh@blinkdigital.in';
+            var score = '0';
+            var profileImgId = 'Abcd123';
+        
+        function saveUser(username, email, score, profileImgId){
+            
+            $.ajax({
+                url: 'register.php',
+                dataType: 'text',
+                type: 'post',
+                data: { 'for': 'register', "username": username, "email": email, "score": score, "profileImgId": profileImgId } ,
+                success: function( data ){
+                    console.log(data);
+                },
+                error: function(){
+                    console.log('ajax error'); 
+                }
+            });
+                  
+        }    
+          saveUser('sandy', 'sandy@123.in', 45, 'Abcd123');       
+        
+    </script>    
+</body>
+
+</html>
