@@ -1,0 +1,149 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+        appId      : '2379845198701339',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v3.2'
+    });
+      
+    FB.AppEvents.logPageView();   
+	
+
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+   
+   function loginToFacebook(){
+   	
+	FB.login(function(response) {
+   console.log(response);
+   
+   
+   if(response.status === 'connected'){
+      // setElements(true);
+      var userId = response.authResponse.userID;
+      // console.log(userId);
+      console.log('login');
+      getUserInfo(userId);
+
+    }else{
+      // setElements(false);
+      console.log('not logged in !');
+    }
+   
+   
+   
+   
+  // handle the response
+}, {scope: 'public_profile,email'});
+   }
+   
+   
+   function getUserInfo(userId) {
+    // body...
+    FB.api(
+      '/'+userId+'/?fields=id,name,email',
+      'GET',
+      {},
+      function(response) {
+        // Insert your code here
+        // console.log(response);
+        var email = response.email;
+       console.log(email);
+	   document.getElementById("demofb").innerHTML =email;
+	   // loginViaEmail(email);
+      }
+    );
+  }
+///
+
+ 
+</script>
+
+<button onclick="loginToFacebook()">FB Login</button>
+<button onclick="loginGoog()">gg</button>
+<p id="demofb"></p>
+
+<br><br> 
+ 
+<br><br>
+<!----------------------------------------------------------------- -------------------------------------------------------------------->
+<!----------------------------------------------------------------- -------------------------------------------------------------------->
+
+<button id='customBtn' >Google SignIn my button </button>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+  <script src="https://apis.google.com/js/api:client.js"></script>
+  <script>
+  var googleUser = {};
+  var startApp = function() {
+    gapi.load('auth2', function(){
+      // Retrieve the singleton for the GoogleAuth library and set up the client.
+      auth2 = gapi.auth2.init({
+        client_id: '1011563481025-sgkagfmaogvkkv0t9q1u1qsatr2s644q.apps.googleusercontent.com',
+        cookiepolicy: 'single_host_origin',
+        // Request scopes in addition to 'profile' and 'email'
+        //scope: 'additional_scope'
+      });
+      attachSignin(document.getElementById('customBtn'));
+    });
+  };
+
+  function attachSignin(element) {
+    console.log(element.id);
+    auth2.attachClickHandler(element, {},
+        function(googleUser) {
+          console.log( "Signed in: " + googleUser.getBasicProfile().getName());
+		  console.log('ID: ' + googleUser.getBasicProfile().getId()); // Do not send to your backend! Use an ID token instead.
+		  console.log('Name: ' + googleUser.getBasicProfile().getName());
+		  console.log('Image URL: ' + googleUser.getBasicProfile().getImageUrl());
+		  console.log('Email: ' + googleUser.getBasicProfile().getEmail()); // This is null if the 'email' scope is not present.
+				  document.getElementById("demogoogle").innerHTML =googleUser.getBasicProfile().getEmail();
+		  
+        }, function(error) {
+          alert(JSON.stringify(error, undefined, 2));
+        });
+  }
+  ////////////
+  
+  function loginGoog() 
+{
+  var myParams = {
+    'clientid' : '1011563481025-sgkagfmaogvkkv0t9q1u1qsatr2s644q.apps.googleusercontent.com', //You need to set client id
+    'cookiepolicy' : 'single_host_origin',
+    'callback' : 'loginCallback', //callback function
+    'approvalprompt':'force',
+    'scope' : 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
+  };
+  gapi.auth.signIn(myParams);
+}  
+  
+  
+  function loginCallback(resp){
+		console.log(resp); 
+		
+		console.log(resp.status)  
+		
+		/*
+		 console.log( "Signed in: " + googleUser.getBasicProfile().getName());
+		  console.log('ID: ' + googleUser.getBasicProfile().getId()); // Do not send to your backend! Use an ID token instead.
+		  console.log('Name: ' + googleUser.getBasicProfile().getName());
+		  console.log('Image URL: ' + googleUser.getBasicProfile().getImageUrl());
+		  console.log('Email: ' + googleUser.getBasicProfile().getEmail()); // This is null if the 'email' scope is not present.
+		*/
+  }
+  
+  
+  </script>
+  
+  <script>startApp();</script>
+  
+  <p id="demogoogle"></p>
