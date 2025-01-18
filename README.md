@@ -1,4 +1,4 @@
-This is a 2D car race game. Entire game has been build using Adobe Animated.
+This is a 2D car race game. Entire game has been build using Adobe Animate.
 
 # Live Demo
 
