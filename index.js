@@ -3637,7 +3637,7 @@ p.nominalBounds = new cjs.Rectangle(-144,-201.6,288,468.6);
 		}
 		
 		
-		ROOT.btnSkip.alpha=0;
+		ROOT.btnSkip.alpha=1;
 		ROOT.btnSkip.addEventListener("click", fl_btnSkip);
 		
 		function fl_btnSkip() {
@@ -5648,7 +5648,7 @@ p.nominalBounds = new cjs.Rectangle(-144,-201.6,288,468.6);
 	this.btnSkip.alpha = 0.0703;
 	new cjs.ButtonHelper(this.btnSkip, 0, 1, 2, false, new lib.skipButtonHome(), 3);
 
-	this.timeline.addTween(cjs.Tween.get(this.btnSkip).to({_off:true},1).wait(10));
+	this.timeline.addTween(cjs.Tween.get(this.btnSkip).to({_off:true},1).wait(3));
 
 	// SignIn_FB_Google
 	this.instance = new lib.Untitled2();
@@ -5658,13 +5658,13 @@ p.nominalBounds = new cjs.Rectangle(-144,-201.6,288,468.6);
 	this.googleLogin = new lib.googleLoginButton();
 	this.googleLogin.name = "googleLogin";
 	this.googleLogin.parent = this;
-	this.googleLogin.setTransform(1260.95,500.7);
+	this.googleLogin.setTransform(-1260.95,500.7);
 	new cjs.ButtonHelper(this.googleLogin, 0, 1, 2, false, new lib.googleLoginButton(), 3);
 
 	this.facebookLogin = new lib.fbLoginButton();
 	this.facebookLogin.name = "facebookLogin";
 	this.facebookLogin.parent = this;
-	this.facebookLogin.setTransform(947.45,500.7,1,1,0,0,0,0.5,0);
+	this.facebookLogin.setTransform(-947.45,500.7,1,1,0,0,0,0.5,0);
 	new cjs.ButtonHelper(this.facebookLogin, 0, 1, 2, false, new lib.fbLoginButton(), 3);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.facebookLogin},{t:this.googleLogin},{t:this.instance}]}).to({state:[]},1).wait(10));
